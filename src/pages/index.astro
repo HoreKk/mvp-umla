@@ -4,7 +4,13 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="UMLA - Alpha Wann">
 	<main class="relative">
-		<section class="hero-section h-full">
+		<section class="hero-section h-full w-full">
+			<div class="hero-loading h-full">
+				<div class="hero-loading-image bg-[url('/umla_cover_front_transformed.jpeg')] bg-cover bg-center absolute top-0 left-0 h-full w-full">
+					<div class="w-full h-full backdrop-blur-lg" />
+				</div>
+				<h1 class="hero-loading-title hero-title absolute left-12 bottom-10">umla</h1>
+			</div>
 			<img src="/alpha_wann.png" alt="UMLA Alpha Wann" class="hero-image absolute bottom-0 left-0 h-full" />
 			<h2 class="hero-title hero-title-1 absolute left-12 bottom-[360px]"></h2>
 			<h2 class="hero-title hero-title-2 absolute left-12 bottom-[200px]"></h2>
@@ -20,15 +26,12 @@ import Layout from '../layouts/Layout.astro';
 					</button>
 				</div>
 			</div>
-			<div class="flex flex-col justify-between items-end h-full">
-				<div class="h-28" />
-				<h3 class="hero-side-title -rotate-90 uppercase text-white text-5xl tracking-wide font-roswell -mr-2">Alpha Wann</h3>
-				<img src="/dondada-logo.png" alt="Don Dada" style="" class="hero-side-logo mr-7 h-36" />
-			</div>
+			<h3 class="hero-side-title absolute right-0 top-1/2 -rotate-90 uppercase text-white text-5xl tracking-wide font-roswell -mr-2">Alpha Wann</h3>
+			<img src="/dondada-logo.png" alt="Don Dada" style="" class="hero-side-logo absolute bottom-0 right-7 h-36" />
 		</section>
-		<section class="bg-umla-dark-blue h-full">
+		<!-- <section class="bg-umla-dark-blue h-full">
 			
-		</section>
+		</section> -->
 	</main>
 </Layout>
 
@@ -41,15 +44,27 @@ import Layout from '../layouts/Layout.astro';
 
 	const tlHero = gsap.timeline();
 
+	tlHero.startTime(1); 
+
+	tlHero.fromTo(".hero-loading", {
+		opacity: 1,
+		display: 'block'
+	}, {
+		duration: 1.25,
+		opacity: 0,
+		display: 'none'
+	})
+
 	tlHero.from(".hero-image", {
 		duration: .75,
+		opacity: 0,
 		x: -1500,
 		ease: 'power2'
 	})
 
-	tlHero.from('.navbar', { duration: 1, y: -200, opacity: 0, ease: 'power3' }, .75);
-	tlHero.from('.hero-side-title', { duration: 1, x: 200, ease: 'power3', opacity: 0, delay: .2 }, .75);
-	tlHero.from('.hero-side-logo', { duration: 1, y: 200, ease: 'power3', opacity: 0, delay: .4 }, .75);
+	tlHero.from('.navbar', { duration: 1, y: -200, opacity: 0, ease: 'power3' }, 2);
+	tlHero.from('.hero-side-title', { duration: 1, ease: 'power3', opacity: 0, delay: .2 }, 2);
+	tlHero.from('.hero-side-logo', { duration: 1, ease: 'power3', opacity: 0, delay: .4 }, 2);
 	
 	tlHero.to(".hero-title-1", {
 		text: {
@@ -57,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
 		},
 		duration: .5,
 		ease: 'power1'
-	}, .75);
+	}, 2);
 
 	tlHero.to(".hero-title-2", {
 		text: {
@@ -78,7 +93,9 @@ import Layout from '../layouts/Layout.astro';
 </script>
 
 <style>
+
 	.hero-section {
 		background: linear-gradient(180deg, rgba(42,133,184,1) 0%, rgba(69,163,157,1) 50%, rgba(193,178,118,1) 85%);
 	}
+
 </style>
