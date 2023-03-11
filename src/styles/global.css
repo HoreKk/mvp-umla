@@ -1,0 +1,11 @@
+html, body, main {
+  height: 100%;
+}
+
+.btn {
+  @apply py-1 px-3 text-lg uppercase;
+}
+
+.btn-primary {
+  @apply bg-umla-yellow text-center -skew-x-12 !py-0.5 !px-7;
+}

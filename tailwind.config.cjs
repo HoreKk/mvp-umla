@@ -3,7 +3,8 @@ module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		fontFamily:{
-			'sans': ['Kanit'],
+			'sans': ['Integral'],
+			'roswell': ['Roswell'],
 		},
 		extend: {
 			colors: {
@@ -14,7 +15,7 @@ module.exports = {
 				'umla-sand': '#c1b276',
 				'umla-red': '#b9191c',
 				'umla-yellow': '#fbf951',
-			}
+			},
 		},
 	},
 	plugins: [],
