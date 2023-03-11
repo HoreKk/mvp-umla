@@ -9,3 +9,7 @@ html, body, main {
 .btn-primary {
   @apply bg-umla-yellow text-center -skew-x-12 !py-0.5 !px-7;
 }
+
+.hero-title {
+  @apply mix-blend-difference leading-[.9] right-[20%] text-[175px] italic uppercase text-white font-black;
+}

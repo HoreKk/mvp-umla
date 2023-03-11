@@ -5,11 +5,11 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="UMLA - Alpha Wann">
 	<main class="relative">
 		<section class="hero-section h-full">
-			<img src="/alpha_wann.png" alt="UMLA Alpha Wann" class="absolute bottom-0 left-0 h-full" />
-			<h2 class="absolute bottom-14 left-12 mix-blend-difference leading-[.9] right-[20%] text-[175px] italic uppercase text-white font-black">
-				Une main lave l'autre
-			</h2>
-			<div class="flex fixed w-full px-10 py-5 items-center justify-between">
+			<img src="/alpha_wann.png" alt="UMLA Alpha Wann" class="hero-image absolute bottom-0 left-0 h-full" />
+			<h2 class="hero-title hero-title-1 absolute left-12 bottom-[360px]"></h2>
+			<h2 class="hero-title hero-title-2 absolute left-12 bottom-[200px]"></h2>
+			<h2 class="hero-title hero-title-3 absolute left-12 bottom-10"></h2>
+			<div class="navbar flex fixed w-full px-10 py-5 items-center justify-between">
 				<h1 class="text-5xl text-umla-yellow font-black italic">UMLA</h1>
 				<div class="flex items-center gap-6">
 					<button class="btn">
@@ -22,8 +22,8 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 			<div class="flex flex-col justify-between items-end h-full">
 				<div class="h-28" />
-				<h3 class="-rotate-90 uppercase text-white text-5xl tracking-wide font-roswell -mr-2">Alpha Wann</h3>
-				<img src="/dondada-logo.png" alt="Don Dada" style="" class="mr-7 h-36" />
+				<h3 class="hero-side-title -rotate-90 uppercase text-white text-5xl tracking-wide font-roswell -mr-2">Alpha Wann</h3>
+				<img src="/dondada-logo.png" alt="Don Dada" style="" class="hero-side-logo mr-7 h-36" />
 			</div>
 		</section>
 		<section class="bg-umla-dark-blue h-full">
@@ -32,15 +32,53 @@ import Layout from '../layouts/Layout.astro';
 	</main>
 </Layout>
 
+<script>
+
+	import { gsap } from 'gsap';
+	import { TextPlugin } from "gsap/TextPlugin";
+
+	gsap.registerPlugin(TextPlugin);
+
+	const tlHero = gsap.timeline();
+
+	tlHero.from(".hero-image", {
+		duration: .75,
+		x: -1500,
+		ease: 'power2'
+	})
+
+	tlHero.from('.navbar', { duration: 1, y: -200, opacity: 0, ease: 'power3' }, .75);
+	tlHero.from('.hero-side-title', { duration: 1, x: 200, ease: 'power3', opacity: 0, delay: .2 }, .75);
+	tlHero.from('.hero-side-logo', { duration: 1, y: 200, ease: 'power3', opacity: 0, delay: .4 }, .75);
+	
+	tlHero.to(".hero-title-1", {
+		text: {
+			value: "Une main"
+		},
+		duration: .5,
+		ease: 'power1'
+	}, .75);
+
+	tlHero.to(".hero-title-2", {
+		text: {
+			value: "lave"
+		},
+		duration: .25,
+		ease: 'power1'
+	}, "<.35");
+
+	tlHero.to(".hero-title-3", {
+		text: {
+			value: "l'autre"
+		},
+		duration: .6,
+		ease: 'power1'
+	}, "<.2");
+
+</script>
+
 <style>
 	.hero-section {
 		background: linear-gradient(180deg, rgba(42,133,184,1) 0%, rgba(69,163,157,1) 50%, rgba(193,178,118,1) 85%);
-	}
-
-	h1 {
-		text-edge: cap alphabetic;
-		text-box-trim: both;
-  	text-box-edge: cap alphabetic;
-		leading-trim: both;
 	}
 </style>
