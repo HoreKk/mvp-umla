@@ -34,3 +34,48 @@
   font-display: swap;
   ascent-override: 95%;
 }
+
+@font-face {
+  font-family: 'Roswell';
+  src: url('/fonts/roswell_four_itc.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 95%;
+}
+
+@font-face {
+  font-family: 'Rama Gothic';
+  src: url('/fonts/rama_gothic_light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 95%;
+}
+
+@font-face {
+  font-family: 'Rama Gothic';
+  src: url('/fonts/rama_gothic_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 95%;
+}
+
+@font-face {
+  font-family: 'Rama Gothic';
+  src: url('/fonts/rama_gothic_semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 95%;
+}
+
+@font-face {
+  font-family: 'Rama Gothic';
+  src: url('/fonts/rama_gothic_bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 95%;
+}

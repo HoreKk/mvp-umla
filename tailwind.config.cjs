@@ -5,6 +5,7 @@ module.exports = {
 		fontFamily:{
 			'sans': ['Integral'],
 			'roswell': ['Roswell'],
+			'rama-gothic': ['Rama Gothic'],
 		},
 		extend: {
 			colors: {

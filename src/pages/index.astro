@@ -1,13 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const tracklist1: { title: string, featuring?: string }[] = [
+	{ title: 'Le piège' },
+	{ title: 'Starsky & Hutch' },
+	{ title: 'Stupéfiant et noir' },
+	{ title: 'Flamme olympique' },
+	{ title: 'Le tour', featuring: 'Infinit\'' },
+	{ title: 'Cascade Remix' },
+	{ title: 'Parachute Chanel', featuring: 'Sneazzy' },
+]
+
+const tracklist2: { title: string, featuring?: string }[] = [
+	{ title: 'Langage Crypté' },
+	{ title: 'Pour Celles' },
+	{ title: 'Olive & Tom' },
+	{ title: '1500', featuring: 'OG l\'enf' },
+	{ title: 'Ça va ensemble' },
+	{ title: 'Contrex' },
+	{ title: 'La lumière dans le noir', featuring: 'Doums' },
+	{ title: 'Fugees', featuring: 'Diabi' },
+	{ title: 'Une main lave l\'autre' },
+	{ title: 'Macro' },
+]
 ---
 
 <Layout title="UMLA - Alpha Wann">
-	<main class="relative">
-		<section class="hero-section h-full w-full">
-			<div class="hero-loading h-full">
-				<div class="hero-loading-image bg-[url('/umla_cover_front_transformed.jpeg')] bg-cover bg-center absolute top-0 left-0 h-full w-full">
-					<div class="w-full h-full backdrop-blur-lg" />
+	<main class="relative h-screen overflow-hidden">
+		<nav class="navbar z-50 flex fixed w-full px-10 py-5 items-center justify-between">
+			<h1 class="text-5xl navbar-logo text-umla-yellow font-black italic">UMLA</h1>
+			<div class="flex items-center gap-6">
+				<button class="btn navbar-item">
+					Don Dada
+				</button>
+				<button class="btn btn-primary">
+					<span class="inline-block skew-x-12">Concerts</span>
+				</button>
+			</div>
+		</nav>
+		<section class="hero-section relative h-[100vh]">
+			<div class="hero-loading">
+				<div class="hero-loading-image bg-[url('/umla_cover_front_transformed.jpeg')] bg-cover bg-center absolute top-0 left-0 h-[100vh] w-full">
+					<div class="w-full min-h-full backdrop-blur-lg" />
 				</div>
 				<h1 class="hero-loading-title hero-title !text-[225px] absolute left-12 bottom-10">umla</h1>
 			</div>
@@ -15,82 +49,60 @@ import Layout from '../layouts/Layout.astro';
 			<h2 class="hero-title hero-title-1 absolute left-12 bottom-[360px]"></h2>
 			<h2 class="hero-title hero-title-2 absolute left-12 bottom-[200px]"></h2>
 			<h2 class="hero-title hero-title-3 absolute left-12 bottom-10"></h2>
-			<div class="navbar flex fixed w-full px-10 py-5 items-center justify-between">
-				<h1 class="text-5xl text-umla-yellow font-black italic">UMLA</h1>
-				<div class="flex items-center gap-6">
-					<button class="btn">
-						Don Dada
-					</button>
-					<button class="btn btn-primary">
-						<span class="inline-block skew-x-12">Concerts</span>
-					</button>
-				</div>
-			</div>
 			<h3 class="hero-side-title absolute right-0 top-1/2 -rotate-90 uppercase text-white text-5xl tracking-wide font-roswell -mr-2">Alpha Wann</h3>
 			<img src="/dondada-logo.png" alt="Don Dada" style="" class="hero-side-logo absolute bottom-0 right-7 h-36" />
 		</section>
-		<!-- <section class="bg-umla-dark-blue h-full">
-			
-		</section> -->
+		<section class="relative h-[100vh] bg-[url('/alpha_wann_concert.jpg')] bg-cover bg-center">
+			<div class="grid grid-cols-12 gap-6 auto-rows-min pt-24 h-full backdrop-brightness-50">
+				<div class="text-white text-[110px] leading-[.9] font-black italic col-start-3 col-span-9">
+					Une main lave l'autre
+				</div>
+				<ul class="col-start-5 col-end-12">
+					{tracklist1.map((track, index) => (
+						<>
+							{index !== 0 && (<li class="w-10 h-[2px] bg-white mr-2 inline-block mb-3" />)}
+							<li class="inline-flex items-end mt-1">
+								<span class="text-4xl text-white tracking-wide font-rama-gothic font-light uppercase mr-2">
+									{track.title}
+								</span>
+								{track.featuring && (
+									<span class="text-xl italic text-white tracking-wide uppercase mr-2">
+										feat. {track.featuring}
+									</span>
+								)}
+							</li>
+						</>
+					))}	
+				</ul>
+				<div class="col-start-4 col-end-10 text-white text-[70px] leading-[.9] font-black italic">
+					Alpha Wann
+				</div>
+				<div class="col-start-6 col-end-8 text-white text-5xl font-rama-gothic font-semibold leading-[.9]">
+					21/09/2018
+				</div>
+				<ul class="col-start-6 col-end-13 ml-8">
+					{tracklist2.map((track, index) => (
+						<>
+							{index !== 0 && (<li class="w-10 h-[2px] bg-white mr-2 inline-block mb-3" />)}
+							<li class="inline-flex items-end mt-1">
+								<span class="text-4xl text-white tracking-wide font-rama-gothic font-light uppercase mr-2">
+									{track.title}
+								</span>
+								{track.featuring && (
+									<span class="text-xl italic text-white tracking-wide uppercase mr-2">
+										feat. {track.featuring}
+									</span>
+								)}
+							</li>
+						</>
+					))}	
+				</ul>
+			</div>
+		</section>
 	</main>
 </Layout>
 
-<script>
-
-	import { gsap } from 'gsap';
-	import { TextPlugin } from "gsap/TextPlugin";
-
-	gsap.registerPlugin(TextPlugin);
-
-	const tlHero = gsap.timeline();
-
-	tlHero.startTime(1); 
-
-	tlHero.fromTo(".hero-loading", {
-		opacity: 1,
-		display: 'block'
-	}, {
-		duration: 1.25,
-		opacity: 0,
-		display: 'none'
-	})
-
-	tlHero.from(".hero-image", {
-		duration: .75,
-		opacity: 0,
-		x: -1500,
-		ease: 'power2'
-	})
-
-	tlHero.from('.navbar', { duration: 1, y: -200, opacity: 0, ease: 'power3' }, 2);
-	tlHero.from('.hero-side-title', { duration: 1, ease: 'power3', opacity: 0, delay: .2 }, 2);
-	tlHero.from('.hero-side-logo', { duration: 1, ease: 'power3', opacity: 0, delay: .4 }, 2);
-	
-	tlHero.to(".hero-title-1", {
-		text: {
-			value: "Une main"
-		},
-		duration: .5,
-		ease: 'power1'
-	}, 2);
-
-	tlHero.to(".hero-title-2", {
-		text: {
-			value: "lave"
-		},
-		duration: .25,
-		ease: 'power1'
-	}, "<.35");
-
-	tlHero.to(".hero-title-3", {
-		text: {
-			value: "l'autre"
-		},
-		duration: .6,
-		ease: 'power1'
-	}, "<.2");
-
-</script>
+<script src="../scripts/script.ts"></script>
 
 <style>
 
