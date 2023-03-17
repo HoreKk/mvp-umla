@@ -11,14 +11,14 @@ const mainElement = document.querySelector('main');
 
 const tlHero = gsap.timeline();
 
-tlHero.then(() => {
-  mainElement?.classList?.remove('overflow-hidden', 'h-screen');
+// tlHero.then(() => {
+//   mainElement?.classList?.remove('overflow-hidden', 'h-screen');
 
-  const logo = document.querySelector('.navbar-logo');
-  const navbarItem = document.querySelector('.navbar-item');
-  const navbarButton = document.querySelector('.navbar-button');
+//   const logo = document.querySelector('.navbar-logo');
+//   const navbarItem = document.querySelector('.navbar-item');
+//   const navbarButton = document.querySelector('.navbar-button');
 
-  const sections: gsap.DOMTarget[] = gsap.utils.toArray('section');
+//   const sections: gsap.DOMTarget[] = gsap.utils.toArray('section');
 
 //   sections.forEach(section => {
 //     ScrollTrigger.create({
