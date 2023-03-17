@@ -20,71 +20,71 @@ tlHero.then(() => {
 
   const sections: gsap.DOMTarget[] = gsap.utils.toArray('section');
 
-  sections.forEach(section => {
-    ScrollTrigger.create({
-      trigger: section,
-      markers: false,
-      start: "top 40",
-      end: "bottom 40",
-      onEnter: () => {
-        if (logo && navbarItem && navbarButton) {
-          let index = [...sections].indexOf(section);
+//   sections.forEach(section => {
+//     ScrollTrigger.create({
+//       trigger: section,
+//       markers: false,
+//       start: "top 40",
+//       end: "bottom 40",
+//       onEnter: () => {
+//         if (logo && navbarItem && navbarButton) {
+//           let index = [...sections].indexOf(section);
 
-          [logo.classList, navbarItem.classList]
-            .forEach(classList =>
-              classList.remove('text-umla-yellow', 'text-white', 'text-black')
-            )
+//           [logo.classList, navbarItem.classList]
+//             .forEach(classList =>
+//               classList.remove('text-umla-yellow', 'text-white', 'text-black')
+//             )
 
-          navbarButton.classList.remove('!text-umla-yellow', '!bg-black')
+//           navbarButton.classList.remove('!text-umla-yellow', '!bg-black')
 
-          switch (index) {
-            case 0:
-              logo.classList.add('text-umla-yellow');
-              navbarItem.classList.add('text-black');
-              break;
-            case 1:
-              logo.classList.add('text-white');
-              navbarItem.classList.add('text-white');
-              break;
-            case 2:
-              logo.classList.add('text-black');
-              navbarItem.classList.add('text-black');
-              navbarButton.classList.add('!text-umla-yellow', '!bg-black')
-              break;
-          }
-        }
-      },
-      onEnterBack: () => {
-        if (logo && navbarItem && navbarButton) {
-          let index = [...sections].indexOf(section);
+//           switch (index) {
+//             case 0:
+//               logo.classList.add('text-umla-yellow');
+//               navbarItem.classList.add('text-black');
+//               break;
+//             case 1:
+//               logo.classList.add('text-white');
+//               navbarItem.classList.add('text-white');
+//               break;
+//             case 2:
+//               logo.classList.add('text-black');
+//               navbarItem.classList.add('text-black');
+//               navbarButton.classList.add('!text-umla-yellow', '!bg-black')
+//               break;
+//           }
+//         }
+//       },
+//       onEnterBack: () => {
+//         if (logo && navbarItem && navbarButton) {
+//           let index = [...sections].indexOf(section);
 
-          [logo.classList, navbarItem.classList]
-            .forEach(classList =>
-              classList.remove('text-umla-yellow', 'text-white', 'text-black')
-            )
+//           [logo.classList, navbarItem.classList]
+//             .forEach(classList =>
+//               classList.remove('text-umla-yellow', 'text-white', 'text-black')
+//             )
 
-          navbarButton.classList.remove('!text-umla-yellow', '!bg-black')
+//           navbarButton.classList.remove('!text-umla-yellow', '!bg-black')
 
-          switch (index) {
-            case 0:
-              logo.classList.add('text-umla-yellow');
-              navbarItem.classList.add('text-black');
-              break;
-            case 1:
-              logo.classList.add('text-white');
-              navbarItem.classList.add('text-white');
-              break;
-            case 2:
-              logo.classList.add('text-black');
-              navbarItem.classList.add('text-black');
-              navbarButton.classList.add('!text-umla-yellow', '!bg-black')
-              break;
-          }
-        }
-      },
-    });
-  });
-})
+//           switch (index) {
+//             case 0:
+//               logo.classList.add('text-umla-yellow');
+//               navbarItem.classList.add('text-black');
+//               break;
+//             case 1:
+//               logo.classList.add('text-white');
+//               navbarItem.classList.add('text-white');
+//               break;
+//             case 2:
+//               logo.classList.add('text-black');
+//               navbarItem.classList.add('text-black');
+//               navbarButton.classList.add('!text-umla-yellow', '!bg-black')
+//               break;
+//           }
+//         }
+//       },
+//     });
+//   });
+// })
 
 tlHero.startTime(1);
 
