@@ -13,7 +13,6 @@ const tlHero = gsap.timeline();
 
 tlHero.then(() => {
   mainElement?.classList?.remove('overflow-hidden', 'h-screen');
-  mainElement?.classList?.add('overflow-scroll');
 
   const logo = document.querySelector('.navbar-logo');
   const navbarItem = document.querySelector('.navbar-item');
