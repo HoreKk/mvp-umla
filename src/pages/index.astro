@@ -42,7 +42,7 @@ const lyricCards: { url: string, thumbnail: string, line: string }[] = [
 ---
 
 <Layout title="UMLA - Alpha Wann">
-	<main class="relative h-screen overflow-hidden">
+	<main class="relative h-screen">
 		<nav class="navbar z-50 flex fixed w-full px-10 py-5 items-center justify-between">
 			<h1 class="text-5xl navbar-logo text-umla-yellow font-black italic">UMLA</h1>
 			<div class="flex items-center gap-6">
@@ -85,12 +85,12 @@ const lyricCards: { url: string, thumbnail: string, line: string }[] = [
 		</section>
 		<section class="relative h-[100vh] bg-umla-yellow overflow-hidden">
 			<h1 class="text-white/25 font-black italic text-[500px] absolute -bottom-16 -left-8 leading-[.9]">UMLA</h1>
-			<div class="flex snap-x snap-mandatory gap-24 h-full overflow-x-scroll no-scrollbar">
-				<div class="shrink-0 aspect-video my-auto w-[160px] relative" />
+			<div class="flex snap-x snap-mandatory h-full overflow-x-scroll no-scrollbar">
+				<div class="shrink-0 aspect-video my-auto w-[17%] relative" />
 				{lyricCards.map(({ url, thumbnail, line }, index) =>
 					<LyricCard url={url} thumbnail={thumbnail} line={line} index={index} />
 				)}
-				<div class="shrink-0 aspect-video my-auto w-[160px]" />
+				<div class="shrink-0 aspect-video my-auto w-[17%]" />
 			</div>
 		</section>
 	</main>
