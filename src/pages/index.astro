@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Tracklist from '../components/Tracklist.astro';
+import LyricCard from '../components/LyricCard.astro';
 
 const tracklist1: { title: string, featuring?: string }[] = [
 	{ title: 'Le piège' },
@@ -23,17 +25,23 @@ const tracklist2: { title: string, featuring?: string }[] = [
 	{ title: 'Une main lave l\'autre' },
 	{ title: 'Macro' },
 ]
+
+const lyricCards: { url: string, thumbnail: string, line: string }[] = [
+	{ thumbnail: "/alpha_wann_shoot.jpeg", url: "https://img.youtube.com/vi/I1pi7-P-XwU/maxresdefault.jpg", line: "dyedasdnas" },
+	{ thumbnail: "/umla_cover_front_transformed.jpeg", url: "https://img.youtube.com/vi/2UMML7hPDec/maxresdefault.jpg", line: "dyedasdnas" },
+]
+
 ---
 
 <Layout title="UMLA - Alpha Wann">
-	<main class="relative h-screen overflow-hidden">
+	<main class="relative h-screen">
 		<nav class="navbar z-50 flex fixed w-full px-10 py-5 items-center justify-between">
 			<h1 class="text-5xl navbar-logo text-umla-yellow font-black italic">UMLA</h1>
 			<div class="flex items-center gap-6">
 				<button class="btn navbar-item">
 					Don Dada
 				</button>
-				<button class="btn btn-primary">
+				<button class="btn btn-primary navbar-button">
 					<span class="inline-block skew-x-12">Concerts</span>
 				</button>
 			</div>
@@ -57,46 +65,24 @@ const tracklist2: { title: string, featuring?: string }[] = [
 				<div class="text-white text-[110px] leading-[.9] font-black italic col-start-3 col-span-9">
 					Une main lave l'autre
 				</div>
-				<ul class="col-start-5 col-end-12">
-					{tracklist1.map((track, index) => (
-						<>
-							{index !== 0 && (<li class="w-10 h-[2px] bg-white mr-2 inline-block mb-3" />)}
-							<li class="inline-flex items-end mt-1">
-								<span class="text-4xl text-white tracking-wide font-rama-gothic font-light uppercase mr-2">
-									{track.title}
-								</span>
-								{track.featuring && (
-									<span class="text-xl italic text-white tracking-wide uppercase mr-2">
-										feat. {track.featuring}
-									</span>
-								)}
-							</li>
-						</>
-					))}	
-				</ul>
+				<Tracklist tracklist={tracklist1} classes="col-start-5 col-end-12" />
 				<div class="col-start-4 col-end-10 text-white text-[70px] leading-[.9] font-black italic">
 					Alpha Wann
 				</div>
 				<div class="col-start-6 col-end-8 text-white text-5xl font-rama-gothic font-semibold leading-[.9]">
 					21/09/2018
 				</div>
-				<ul class="col-start-6 col-end-13 ml-8">
-					{tracklist2.map((track, index) => (
-						<>
-							{index !== 0 && (<li class="w-10 h-[2px] bg-white mr-2 inline-block mb-3" />)}
-							<li class="inline-flex items-end mt-1">
-								<span class="text-4xl text-white tracking-wide font-rama-gothic font-light uppercase mr-2">
-									{track.title}
-								</span>
-								{track.featuring && (
-									<span class="text-xl italic text-white tracking-wide uppercase mr-2">
-										feat. {track.featuring}
-									</span>
-								)}
-							</li>
-						</>
-					))}	
-				</ul>
+				<Tracklist tracklist={tracklist2} classes="col-start-6 col-end-13 ml-8" />
+			</div>
+		</section>
+		<section class="relative h-[100vh] bg-umla-yellow overflow-hidden">
+			<h1 class="text-white/25 font-black italic text-[500px] absolute -bottom-16 -left-8 leading-[.9]">UMLA</h1>
+			<div class="flex snap-x snap-mandatory gap-24 h-full overflow-x-scroll no-scrollbar">
+				<div class="shrink-0 aspect-video my-auto w-[175px] relative" />
+				{lyricCards.map(({ url, thumbnail, line }, index) =>
+					<LyricCard url={url} thumbnail={thumbnail} line={line} index={index} />
+				)}
+				<div class="shrink-0 aspect-video my-auto w-[175px]" />
 			</div>
 		</section>
 	</main>

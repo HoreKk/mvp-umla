@@ -1,0 +1,24 @@
+---
+export interface Props {
+	url: string;
+	thumbnail: string;
+	line: string;
+	index: number;
+}
+
+const { url, thumbnail, line, index } = Astro.props;
+---
+
+<div class="shrink-0 snap-center my-auto leading-[0] shadow-xl">
+	{index == 0 && (
+		<div class="absolute top-28 left-16 z-[1] indent-72 right-1/3 text-white text-[110px] uppercase font-black italic leading-[1]">
+			Une main lave l'autre
+		</div>
+	)}
+	<img src={thumbnail} class="lyric-card-image z-[2] relative shrink-0 w-[1000px] object-center object-cover h-[500px]">
+	{index == 0 && (
+		<div class="absolute top-28 left-16 z-[3] indent-72 right-1/3 mix-blend-difference text-white text-[110px] uppercase font-black italic leading-[1]">
+			Une main lave l'autre
+		</div>
+	)}
+</div>

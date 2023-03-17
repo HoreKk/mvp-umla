@@ -1,0 +1,26 @@
+---
+export interface Props {
+  tracklist: { title: string, featuring?: string }[],
+  classes: string
+}
+
+const { tracklist, classes } = Astro.props;
+---
+
+<ul class={classes}>
+  {tracklist.map((track, index) => (
+    <>
+      {index !== 0 && (<li class="w-10 h-[2px] bg-white mr-2 inline-block mb-3" />)}
+      <li class="inline-flex items-end mt-1">
+        <span class="text-4xl text-white tracking-wide font-rama-gothic font-light uppercase mr-2">
+          {track.title}
+        </span>
+        {track.featuring && (
+          <span class="text-xl italic text-white tracking-wide uppercase mr-2">
+            feat. {track.featuring}
+          </span>
+        )}
+      </li>
+    </>
+  ))}	
+</ul>

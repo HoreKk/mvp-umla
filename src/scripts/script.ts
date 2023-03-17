@@ -15,46 +15,79 @@ tlHero.then(() => {
   mainElement?.classList?.remove('overflow-hidden', 'h-screen');
   mainElement?.classList?.add('overflow-scroll');
 
+  const logo = document.querySelector('.navbar-logo');
   const navbarItem = document.querySelector('.navbar-item');
+  const navbarButton = document.querySelector('.navbar-button');
 
   const sections: gsap.DOMTarget[] = gsap.utils.toArray('section');
 
   sections.forEach(section => {
-      ScrollTrigger.create({
-        trigger: section,
-        markers: false,
-        start: "top 40",
-        end: "bottom 40",
-        onEnter: () => {
-          console.log('enter')
-          if (navbarItem) {
-            let index = [...sections].indexOf(section);
+    ScrollTrigger.create({
+      trigger: section,
+      markers: false,
+      start: "top 40",
+      end: "bottom 40",
+      onEnter: () => {
+        if (logo && navbarItem && navbarButton) {
+          let index = [...sections].indexOf(section);
 
-            if (index === 0) {
-              navbarItem.classList.remove('text-white');
-            } else {
-              navbarItem.classList.add('text-white');
-            }
-          }
+          [logo.classList, navbarItem.classList]
+            .forEach(classList =>
+              classList.remove('text-umla-yellow', 'text-white', 'text-black')
+            )
 
-          
-        },
-        onEnterBack: () => {
-          if (navbarItem) {
-            let index = [...sections].indexOf(section);
-            
-            if (index === 0) {
-              navbarItem.classList.remove('text-white');
-            } else {
+          navbarButton.classList.remove('!text-umla-yellow', '!bg-black')
+
+          switch (index) {
+            case 0:
+              logo.classList.add('text-umla-yellow');
+              navbarItem.classList.add('text-black');
+              break;
+            case 1:
+              logo.classList.add('text-white');
               navbarItem.classList.add('text-white');
-            }
+              break;
+            case 2:
+              logo.classList.add('text-black');
+              navbarItem.classList.add('text-black');
+              navbarButton.classList.add('!text-umla-yellow', '!bg-black')
+              break;
           }
-        },
-      });
+        }
+      },
+      onEnterBack: () => {
+        if (logo && navbarItem && navbarButton) {
+          let index = [...sections].indexOf(section);
+
+          [logo.classList, navbarItem.classList]
+            .forEach(classList =>
+              classList.remove('text-umla-yellow', 'text-white', 'text-black')
+            )
+
+          navbarButton.classList.remove('!text-umla-yellow', '!bg-black')
+
+          switch (index) {
+            case 0:
+              logo.classList.add('text-umla-yellow');
+              navbarItem.classList.add('text-black');
+              break;
+            case 1:
+              logo.classList.add('text-white');
+              navbarItem.classList.add('text-white');
+              break;
+            case 2:
+              logo.classList.add('text-black');
+              navbarItem.classList.add('text-black');
+              navbarButton.classList.add('!text-umla-yellow', '!bg-black')
+              break;
+          }
+        }
+      },
+    });
   });
 })
 
-tlHero.startTime(1); 
+tlHero.startTime(1);
 
 tlHero.fromTo(".hero-loading", {
   opacity: 1,

@@ -15,7 +15,7 @@ module.exports = {
 				'umla-green': '#2d635f',
 				'umla-sand': '#c1b276',
 				'umla-red': '#b9191c',
-				'umla-yellow': '#fbf951',
+				'umla-yellow': '#f5f312',
 			},
 		},
 	},
