@@ -42,7 +42,7 @@ const lyricCards: { url: string, thumbnail: string, line: string }[] = [
 ---
 
 <Layout title="UMLA - Alpha Wann">
-	<main class="relative h-screen overflow-hidden">
+	<main class="relative">
 		<nav class="navbar z-50 flex fixed w-full px-10 py-5 items-center justify-between">
 			<h1 class="text-5xl navbar-logo text-umla-yellow font-black italic">UMLA</h1>
 			<div class="flex items-center gap-6">
@@ -54,45 +54,47 @@ const lyricCards: { url: string, thumbnail: string, line: string }[] = [
 				</button>
 			</div>
 		</nav>
-		<section class="hero-section relative h-[100vh]">
-			<div class="hero-loading">
-				<div class="hero-loading-image bg-[url('/umla_cover_front_transformed.webp')] bg-cover bg-center absolute top-0 left-0 h-[100vh] w-full">
-					<div class="w-full min-h-full backdrop-blur-lg" />
+		<div id="content" class="relative main h-screen overflow-hidden">
+			<section class="hero-section relative h-[100vh]">
+				<div class="hero-loading">
+					<div class="hero-loading-image bg-[url('/umla_cover_front_transformed.webp')] bg-cover bg-center absolute top-0 left-0 h-[100vh] w-full">
+						<div class="w-full min-h-full backdrop-blur-lg" />
+					</div>
+					<h1 class="hero-loading-title hero-title !text-[225px] absolute left-12 bottom-10">umla</h1>
 				</div>
-				<h1 class="hero-loading-title hero-title !text-[225px] absolute left-12 bottom-10">umla</h1>
-			</div>
-			<img src="/alpha_wann.webp" alt="UMLA Alpha Wann" class="hero-image absolute bottom-0 left-0 h-full" />
-			<h2 class="hero-title hero-title-1 absolute left-12 bottom-[360px]"></h2>
-			<h2 class="hero-title hero-title-2 absolute left-12 bottom-[200px]"></h2>
-			<h2 class="hero-title hero-title-3 absolute left-12 bottom-10"></h2>
-			<h3 class="hero-side-title absolute right-0 top-1/2 -rotate-90 uppercase text-white text-5xl tracking-wide font-roswell -mr-2">Alpha Wann</h3>
-			<img src="/dondada-logo.webp" alt="Don Dada" style="" class="hero-side-logo absolute bottom-0 right-7 h-36" />
-		</section>
-		<section class="relative h-[100vh] bg-[url('/alpha_wann_concert.webp')] bg-cover bg-center">
-			<div class="grid grid-cols-12 gap-6 auto-rows-min pt-24 h-full backdrop-brightness-50">
-				<div class="text-white text-[110px] leading-[.9] font-black italic col-start-3 col-span-9">
-					Une main lave l'autre
+				<img src="/alpha_wann.webp" alt="UMLA Alpha Wann" class="hero-image absolute bottom-0 left-0 h-full" />
+				<h2 class="hero-title hero-title-1 absolute left-12 bottom-[360px]"></h2>
+				<h2 class="hero-title hero-title-2 absolute left-12 bottom-[200px]"></h2>
+				<h2 class="hero-title hero-title-3 absolute left-12 bottom-10"></h2>
+				<h3 class="hero-side-title absolute right-0 top-1/2 -rotate-90 uppercase text-white text-5xl tracking-wide font-roswell -mr-2">Alpha Wann</h3>
+				<img src="/dondada-logo.webp" alt="Don Dada" style="" class="hero-side-logo absolute bottom-0 right-7 h-36" />
+			</section>
+			<section class="relative h-[100vh] bg-[url('/alpha_wann_concert.webp')] bg-cover bg-center">
+				<div class="grid grid-cols-12 gap-6 auto-rows-min pt-24 h-full backdrop-brightness-50">
+					<div class="text-white text-[110px] leading-[.9] font-black italic col-start-3 col-span-9">
+						Une main lave l'autre
+					</div>
+					<Tracklist tracklist={tracklist1} classes="col-start-5 col-end-12" />
+					<div class="col-start-4 col-end-10 text-white text-[70px] leading-[.9] font-black italic">
+						Alpha Wann
+					</div>
+					<div class="col-start-6 col-end-8 text-white text-5xl font-rama-gothic font-semibold leading-[.9]">
+						21/09/2018
+					</div>
+					<Tracklist tracklist={tracklist2} classes="col-start-6 col-end-13 ml-8" />
 				</div>
-				<Tracklist tracklist={tracklist1} classes="col-start-5 col-end-12" />
-				<div class="col-start-4 col-end-10 text-white text-[70px] leading-[.9] font-black italic">
-					Alpha Wann
+			</section>
+			<section class="relative h-[100vh] bg-umla-yellow overflow-hidden">
+				<h1 class="text-white/25 font-black italic text-[500px] absolute -bottom-16 -left-8 leading-[.9]">UMLA</h1>
+				<div class="flex snap-x snap-mandatory h-full overflow-x-scroll no-scrollbar">
+					<div class="shrink-0 aspect-video my-auto w-[17%] relative" />
+					{lyricCards.map(({ url, thumbnail, line }, index) =>
+						<LyricCard url={url} thumbnail={thumbnail} line={line} index={index} />
+					)}
+					<div class="shrink-0 aspect-video my-auto w-[17%]" />
 				</div>
-				<div class="col-start-6 col-end-8 text-white text-5xl font-rama-gothic font-semibold leading-[.9]">
-					21/09/2018
-				</div>
-				<Tracklist tracklist={tracklist2} classes="col-start-6 col-end-13 ml-8" />
-			</div>
-		</section>
-		<section class="relative h-[100vh] bg-umla-yellow overflow-hidden">
-			<h1 class="text-white/25 font-black italic text-[500px] absolute -bottom-16 -left-8 leading-[.9]">UMLA</h1>
-			<div class="flex snap-x snap-mandatory h-full overflow-x-scroll no-scrollbar">
-				<div class="shrink-0 aspect-video my-auto w-[17%] relative" />
-				{lyricCards.map(({ url, thumbnail, line }, index) =>
-					<LyricCard url={url} thumbnail={thumbnail} line={line} index={index} />
-				)}
-				<div class="shrink-0 aspect-video my-auto w-[17%]" />
-			</div>
-		</section>
+			</section>
+		</div>
 	</main>
 </Layout>
 
